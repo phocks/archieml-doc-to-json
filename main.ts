@@ -1,6 +1,5 @@
 import { load } from "@std/dotenv";
 import { App, type Context, cors, staticFiles } from "fresh";
-import GoogleDocToJSON from "googledoc-to-json";
 import { define, type State } from "./utils.ts";
 
 const env = await load({
@@ -28,20 +27,6 @@ const docConfig = {
 app.use(staticFiles());
 app.use(cors({ origin: "*" }));
 
-const gDocToJSON = new GoogleDocToJSON(docConfig.web);
-
-// const getArchieMLAsync = (options: any) => {
-//   return new Promise((resolve, reject) => {
-//     gDocToJSON.getArchieML(options, (error: Error | null, archieMl: any) => {
-//       if (error) {
-//         reject(error);
-//       } else {
-//         resolve(archieMl);
-//       }
-//     });
-//   });
-// };
-
 // Pass a shared value from a middleware
 app.use(async (ctx: Context<State>) => {
   ctx.state.shared = "hello";
@@ -55,32 +40,6 @@ app.get("/api2/:name", (ctx: Context<State>) => {
     `Hello, ${name.charAt(0).toUpperCase() + name.slice(1)}!`,
   );
 });
-
-// app.get("/doc/:id", async (ctx: Context<State>) => {
-//   const { id } = ctx.params;
-
-//   try {
-//     const docOptions = {
-//       fileId: id,
-//       oAuthTokens: docConfig.web.oAuthTokens,
-//     };
-
-//     const archieMl = await getArchieMLAsync(docOptions);
-
-//     return new Response(JSON.stringify(archieMl), {
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
-//   } catch (error) {
-//     // Handle errors from the library
-//     console.error("Failed to get ArchieML:", error);
-//     return new Response(JSON.stringify({ error: error.message }), {
-//       status: 500,
-//       headers: { "Content-Type": "application/json" },
-//     });
-//   }
-// });
 
 // this can also be defined via a file. feel free to delete this!
 const exampleLoggerMiddleware = define.middleware((ctx) => {
