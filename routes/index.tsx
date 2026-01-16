@@ -2,6 +2,8 @@ import { useSignal } from "@preact/signals";
 import { Head } from "fresh/runtime";
 import { define } from "../utils.ts";
 import Counter from "../islands/Counter.tsx";
+import { google } from "googleapis";
+const docs = google.docs('v1');
 
 export default define.page(function Home(ctx) {
   const count = useSignal(3);
