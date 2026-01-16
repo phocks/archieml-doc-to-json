@@ -56,31 +56,31 @@ app.get("/api2/:name", (ctx: Context<State>) => {
   );
 });
 
-app.get("/doc/:id", async (ctx: Context<State>) => {
-  const { id } = ctx.params;
+// app.get("/doc/:id", async (ctx: Context<State>) => {
+//   const { id } = ctx.params;
 
-  try {
-    const docOptions = {
-      fileId: id,
-      oAuthTokens: docConfig.web.oAuthTokens,
-    };
+//   try {
+//     const docOptions = {
+//       fileId: id,
+//       oAuthTokens: docConfig.web.oAuthTokens,
+//     };
 
-    const archieMl = await getArchieMLAsync(docOptions);
+//     const archieMl = await getArchieMLAsync(docOptions);
 
-    return new Response(JSON.stringify(archieMl), {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  } catch (error) {
-    // Handle errors from the library
-    console.error("Failed to get ArchieML:", error);
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-});
+//     return new Response(JSON.stringify(archieMl), {
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     });
+//   } catch (error) {
+//     // Handle errors from the library
+//     console.error("Failed to get ArchieML:", error);
+//     return new Response(JSON.stringify({ error: error.message }), {
+//       status: 500,
+//       headers: { "Content-Type": "application/json" },
+//     });
+//   }
+// });
 
 // this can also be defined via a file. feel free to delete this!
 const exampleLoggerMiddleware = define.middleware((ctx) => {
