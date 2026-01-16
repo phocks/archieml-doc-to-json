@@ -28,19 +28,19 @@ const docConfig = {
 app.use(staticFiles());
 app.use(cors({ origin: "*" }));
 
-const gDocToJSON = new GoogleDocToJSON(docConfig.web);
+// const gDocToJSON = new GoogleDocToJSON(docConfig.web);
 
-const getArchieMLAsync = (options: any) => {
-  return new Promise((resolve, reject) => {
-    gDocToJSON.getArchieML(options, (error: Error | null, archieMl: any) => {
-      if (error) {
-        reject(error);
-      } else {
-        resolve(archieMl);
-      }
-    });
-  });
-};
+// const getArchieMLAsync = (options: any) => {
+//   return new Promise((resolve, reject) => {
+//     gDocToJSON.getArchieML(options, (error: Error | null, archieMl: any) => {
+//       if (error) {
+//         reject(error);
+//       } else {
+//         resolve(archieMl);
+//       }
+//     });
+//   });
+// };
 
 // Pass a shared value from a middleware
 app.use(async (ctx: Context<State>) => {
