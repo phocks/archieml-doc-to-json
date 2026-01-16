@@ -3,15 +3,18 @@
   "deno.lint": true,
   "editor.defaultFormatter": "denoland.vscode-deno",
   "[typescriptreact]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[javascriptreact]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
   },
   "[javascript]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
   }
 }
