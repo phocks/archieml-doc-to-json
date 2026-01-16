@@ -28,7 +28,7 @@ const docConfig = {
 app.use(staticFiles());
 app.use(cors({ origin: "*" }));
 
-// const gDocToJSON = new GoogleDocToJSON(docConfig.web);
+const gDocToJSON = new GoogleDocToJSON(docConfig.web);
 
 // const getArchieMLAsync = (options: any) => {
 //   return new Promise((resolve, reject) => {

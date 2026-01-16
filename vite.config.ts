@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [fresh()],
   ssr: {
     // Externalize commonjs dependencies that rely on 'module' or 'exports'
-    external: ["json-bigint", "googledoc-to-json"],
+    external: ["json-bigint", "googledoc-to-json", "googleapis"],
   },
   build: {
     sourcemap: false,
